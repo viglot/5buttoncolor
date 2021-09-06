@@ -1,20 +1,12 @@
-function chBackcolor(red) {
-    document.body.style.background = red;
- }
+const buttons = document.getElementsByTagName('button');
 
- function chBackcolor(green) {
-    document.body.style.background = green;
- }
+for(let i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener('click', onButtonClicked);
+}
 
- function chBackcolor(blue) {
-    document.body.style.background = blue;
- }
+document.body.style.backgroundColor = localStorage.getItem('color');
 
- function chBackcolor(black) {
-    document.body.style.background = black;
- }
-
- function chBackcolor(white) {
-    document.body.style.background = white;
- }
-
+function onButtonClicked(e) {
+  localStorage.setItem('color', e.target.style.backgroundColor);
+  document.body.style.backgroundColor = e.target.style.backgroundColor;
+}
